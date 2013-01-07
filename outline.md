@@ -20,6 +20,14 @@
 * Define helper methods for any component that is repeated more than once, for
   example `MarkupHelper#page_header`
 
+## Form builders
+
+* Using custom form builders to DRY up forms
+
+## Simple Form
+
+* Not simple at all, but very powerful. Good alternative to custom form builders
+
 ## Removing logic from views
 
 * Show some examples of seemingly innocuous logic found in views that, when
