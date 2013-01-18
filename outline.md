@@ -28,6 +28,10 @@
 
 * Not simple at all, but very powerful. Good alternative to custom form builders
 
+## i18n
+
+* Getting copy out of views
+
 ## Removing logic from views
 
 * Show some examples of seemingly innocuous logic found in views that, when
