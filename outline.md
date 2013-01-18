@@ -24,6 +24,7 @@
 ## View Objects
 
 * Composing UI elements with Ruby objects
+* Using tools like crafty and erector to generate HTML
 
 ## Form builders
 
