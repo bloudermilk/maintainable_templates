@@ -2,7 +2,7 @@
 
 [Slides][slides] from a talk I gave at Rails Conf 2013 in Portland, OR.
 
-[outline]: https://github.com/bloudermilk/maintainable_templates/blob/master/slides.md
+[slides]: https://github.com/bloudermilk/maintainable_templates/blob/master/slides.md
 
 ## Recommended Reading
 
