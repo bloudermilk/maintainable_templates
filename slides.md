@@ -1,6 +1,8 @@
 # Maintainable Templates
 
-Hi, I'm Brendan Loudermilk (@bloudermilk).
+Brendan Loudermilk *(@bloudermilk)*
+
+Developer, philosophie
 
 ```notes
 Software engineer at philosophie
@@ -43,11 +45,23 @@ Logic in your views
 
 ## Markup Repetition
 
-Easy, use partials.
+Good designers repeat themselves.
+
+Good programmers don't.
+
+### Avoiding markup repetition
 
 Abstract interface components.
 
+Use partials.
+
 ## Logic in templates
+
+Highly repetitive.
+
+Painful to test.
+
+### Logic in a template
 
 ```erb
 <h3>Your Saved Credit Card</h3>
@@ -71,9 +85,9 @@ Abstract interface components.
 </p>
 ```
 
-### Yet another view without helpers...
+### Other views with the same logic
 
-...is inevitable.
+...are inevitable.
 
 ## Helpers
 
@@ -88,8 +102,8 @@ for views.
 
 ```ruby
 module CreditCardHelper
-  def masked_credit_card(credit_card)
-    "XXXX-XXXX-XXXX-" + credit_card.number[-4..-1]
+  def masked_credit_card_number(number)
+    "XXXX-XXXX-XXXX-" + number[-4..-1]
   end
 end
 ```
@@ -99,7 +113,7 @@ end
 ```erb
 <p>
   Thanks for ordering! Your purchase has been billed to your credit card:
-  <strong><%= masked_credit_card(@credit_card) %></strong>
+  <strong><%= masked_credit_card_number(@credit_card.number) %></strong>
 </p>
 ```
 
@@ -297,7 +311,7 @@ end
 
 ```ruby
 module StoriesHelper
-  def story_summary_view(story)
+  def story_summary(story)
     StorySummaryView.new(self, story, current_user)
   end
 end
@@ -306,14 +320,59 @@ end
 In our calling view:
 
 ```erb
-<%= story_summary_view(@story) %>
+<%= story_summary(@story) %>
 ```
 
-### Other tips
+## Form Builders
+
+Rails comes with View Objects.
+
+### `form_for`
+
+```erb
+<%= form_for @user do |form| %>
+  <div class="form-field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="form-field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+<% end %>
+```
+
+### Defining a custom FormBuilder
+
+```ruby
+class FancyFormBuilder < ActionView::Helpers::FormBuilder
+  def fancy_text_field(attribute, options = {})
+    @template.content_tag(:div, class: "form-field") do
+      label(attribute) + text_field(attribute, options)
+    end
+  end
+end
+```
+
+### Rendering the custom builder
+
+```erb
+<%= form_for @user, builder: FancyFormBuilder do |form| %>
+  <%= form.fancy_text_field :name %>
+  <%= form.fancy_text_field :email %>
+<% end %>
+```
+
+## Other tips
 
 * Use i18n
-* Check out `FormBuilder`s
+* Find gems to do this work for you (eg. [simple_form][simple_form],
+  [table_cloth][tables])
 
-### Thanks!
+[simple_form]: https://github.com/plataformatec/simple_form
+[tables]: https://github.com/bobbytables/table_cloth
+
+## Thanks!
 
 Questions or Comments?
