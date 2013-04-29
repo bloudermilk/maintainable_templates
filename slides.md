@@ -4,44 +4,18 @@ Brendan Loudermilk *(@bloudermilk)*
 
 Developer, philosophie
 
-```notes
-Software engineer at philosophie
-
-Thank attendees and Ruby Central.
-```
-
 ## Why are we here?
 
 Templates are frequently neglected.
-
-```notes
-Models, controllers, and other Ruby classes get love.
-
-Views get ignored.
-```
 
 ## Assumptions
 
 You know how to write "clean" markup.
 
-```notes
-You don't use inline CSS or JavaScript
-```
-
 ## Unmaintainable templates
 
 * Markup repetition
 * Logic in templates
-
-```notes
-Unmaintainable templates can be avoided by watching out for a couple things.
-Good designers use interface patterns to create a consistent user experience.
-  Those patterns will inevitably change over time.
-  Repeating markup makes it difficult to adapt.
-Logic in your views
-  Highly repetive
-  Hard to test
-```
 
 ## Markup Repetition
 
@@ -123,11 +97,6 @@ end
 * Difficult to organize
 * Complex logic isn't well suited for them
 * Don't *feel* right
-
-```notes
-What we really want is to define presentational methods on our models
-But models are meant for the behavior/data of our application domain
-```
 
 ## Decorator Pattern
 
@@ -225,10 +194,6 @@ features:
 ## Complex views
 
 Unique and/or complex UI behavior will quickly outgrow helpers.
-
-```notes
-Logic not tied to models, but rather an interface element
-```
 
 ### Complex view example
 
