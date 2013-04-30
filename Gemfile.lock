@@ -1,5 +1,6 @@
-PATH
-  remote: ~/Projects/slyde/gem
+GIT
+  remote: git://github.com/bloudermilk/slyde.git
+  revision: 481270cd48156336ef71a886ce7f093a8b72e7bb
   specs:
     slyde (0.0.1)
       liquid (~> 2.4.1)
